@@ -10,7 +10,7 @@
 #ifdef TESTING
 #include <cstdio>
 #endif
-
+#include <cerrno>
 
 #include "atomically.h"
 #include "bassert.h"
