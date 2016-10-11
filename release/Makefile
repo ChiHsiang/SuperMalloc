@@ -5,16 +5,16 @@ UNITTESTS = # don't include unit tests
 LINKMODE = dynamic
 include ../Makefile.include
 
-DLMALLOC_DIR = /home/bradley/malloc-implementations/dlmalloc/
+DLMALLOC_DIR = ../other-mallocs/dlmalloc/
 DLMALLOC_FLAGS = -L$(DLMALLOC_DIR) -ldlmalloc -Wl,-rpath,$(DLMALLOC_DIR) -pthread
 
-HOARD_DIR = /home/bradley/malloc-implementations/Hoard/src
+HOARD_DIR = ../other-mallocs/Hoard/src
 HOARD_FLAGS = -L$(HOARD_DIR) -lhoard -Wl,-rpath,$(HOARD_DIR) -pthread
 
-JEMALLOC_DIR = /home/bradley/malloc-implementations/jemalloc-3.6.0/lib
+JEMALLOC_DIR = ../other-mallocs/jemalloc/lib
 JEMALLOC_FLAGS = -L$(JEMALLOC_DIR) -ljemalloc -Wl,-rpath,$(JEMALLOC_DIR) -pthread
 
-TBBMALLOC_DIR = /home/bradley/malloc-implementations/tbb43_20140724oss/build/linux_intel64_gcc_cc4.8.3_libc2.18_kernel3.16.3_release
+TBBMALLOC_DIR = ../other-mallocs/tbb/build
 TBBMALLOC_FLAGS = -L$(TBBMALLOC_DIR) -ltbbmalloc_proxy -ltbbmalloc -Wl,-rpath,$(TBBMALLOC_DIR) -pthread 
 
 TCMALLOC_DIR = /home/bradley/malloc-implementations/gperftools-2.4/.libs
@@ -66,7 +66,7 @@ $(BLD)/new-malloc-test-supermalloc_pthread: $(BLD)/new-malloc-test.o $(LIB)/libs
 	$(CXX) $< -L$(LIB) -lsupermalloc_pthread -Wl,-rpath,$(LIB) -pthread -o $@
 
 
-TBBMALLOCNOTSX_DIR = /home/bradley/malloc-implementations/tbb_no_tsx/tbb43_20140724oss/build/linux_intel64_gcc_cc4.8.3_libc2.18_kernel3.16.3_release
+TBBMALLOCNOTSX_DIR = ../other-mallocs/tbb
 $(BLD)/new-malloc-test-tbbmallocnotsx: $(BLD)/new-malloc-test.o
 	$(CXX) $< -L$(TBBMALLOCNOTSX_DIR) -ltbbmalloc_proxy -ltbbmalloc -Wl,-rpath,$(TBBMALLOCNOTSX_DIR) -pthread -o $@
 
